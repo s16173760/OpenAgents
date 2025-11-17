@@ -23,6 +23,31 @@ https://opencode.ai/docs
 ```
 
 ### Step 2: Install Agents & Commands
+
+**Option A: Interactive Installer (Recommended)**
+```bash
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash
+```
+
+The installer offers:
+- 🎯 **Quick Profiles**: Core, Developer, Full, or Advanced
+- 🎨 **Custom Selection**: Pick exactly what you need
+- 📦 **Smart Dependencies**: Auto-installs required components
+- ✨ **Interactive Menus**: User-friendly component browser
+
+**Option B: Profile-Based Install**
+```bash
+# Core essentials only
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s core
+
+# Balanced for daily development
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s developer
+
+# Everything included
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s full
+```
+
+**Option C: Manual Install**
 ```bash
 # Clone this repository
 git clone https://github.com/darrenhinde/opencode-agents.git
@@ -220,10 +245,62 @@ A: The agents work with any language (TypeScript, Python, Go, Rust, etc.) and ad
 A: It's a teaching document explaining architecture patterns and how to extend the system.
 
 **Q: Can I use just one command or agent?**  
-A: Yes! Cherry-pick individual files with curl:
+A: Yes! Use the installer's list feature to see all components:
+```bash
+./install.sh --list
+```
+Or cherry-pick individual files with curl:
 ```bash
 curl -o ~/.opencode/agent/codebase-agent.md \
   https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/.opencode/agent/codebase-agent.md
+```
+
+---
+
+## Installation Profiles
+
+The installer offers four pre-configured profiles:
+
+### 🎯 Core (Minimal)
+Essential agents and commands for basic OpenCode usage.
+- **Agents**: task-manager, codebase-agent
+- **Subagents**: reviewer, tester, documentation, coder-agent, build-agent
+- **Commands**: test, commit, context
+- **Tools**: env utilities
+- **Best for**: Getting started, minimal setup
+
+### 💼 Developer (Recommended)
+Balanced setup for daily development work.
+- Everything in Core, plus:
+- **Agents**: image-specialist, workflow-orchestrator
+- **Subagents**: codebase-pattern-analyst
+- **Commands**: clean, optimize, prompt-enhancer
+- **Tools**: Gemini AI integration
+- **Plugins**: Telegram notifications
+- **Best for**: Most developers, daily use
+
+### 📦 Full
+Complete installation with all available components.
+- Everything in Developer, plus:
+- **Commands**: worktrees (git worktree management)
+- **Best for**: Power users, exploring all features
+
+### 🚀 Advanced
+Full installation plus experimental features and planning docs.
+- Everything in Full, plus:
+- **Additional**: .Building/ directory, GitHub workflows
+- **Best for**: Contributors, learning the architecture
+
+## Updating Components
+
+Keep your components up to date:
+
+```bash
+# Update all installed components
+./update.sh
+
+# Or re-run the installer
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash
 ```
 
 ---
