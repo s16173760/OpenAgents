@@ -1,6 +1,11 @@
 # OpenCode Agents
 
-A set of OpenCode configurations, prompts, agents, and plugins for enhanced development workflows.
+[![GitHub stars](https://img.shields.io/github/stars/darrenhinde/opencode-agents?style=social)](https://github.com/darrenhinde/opencode-agents/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub last commit](https://img.shields.io/github/last-commit/darrenhinde/opencode-agents)](https://github.com/darrenhinde/opencode-agents/commits/main)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+AI agent framework for plan-first development workflows with approval-based execution. Multi-language support (TypeScript, Python, Go, Rust) with automatic testing, code review, and validation.
 
 [![Watch Demo](https://img.youtube.com/vi/EOIzFMdmox8/maxresdefault.jpg)](https://youtu.be/EOIzFMdmox8?si=4ZSsVlAkhMxVmF2R)
 
@@ -223,6 +228,30 @@ cp env.example .env
 ```
 
 **Get API key:** https://makersuite.google.com/app/apikey
+
+---
+
+## How It Compares
+
+### vs GitHub Copilot
+- ✅ **Plan-first workflow** - Proposes plans before executing (Copilot executes immediately)
+- ✅ **Approval-based** - You review and approve each step (Copilot auto-completes)
+- ✅ **Multi-agent system** - Specialized agents for testing, review, docs (Copilot is single-purpose)
+- ✅ **Context-aware** - Follows your coding patterns from context files
+
+### vs Cursor
+- ✅ **IDE-agnostic** - Works with any editor (Cursor is IDE-specific)
+- ✅ **Multi-agent coordination** - Task delegation between specialized agents
+- ✅ **Workflow orchestration** - Manages complex multi-step features
+- ✅ **Open source** - Fully customizable and extensible
+
+### vs Aider
+- ✅ **Visual workflow** - Interactive menus and progress tracking (Aider is CLI-only)
+- ✅ **Subagent system** - Automatic delegation to specialized agents
+- ✅ **Built-in validation** - Type checking, testing, and review integrated
+- ✅ **Installation profiles** - Choose your feature set (core, developer, full)
+
+**Key Differentiator:** OpenCode Agents is the only framework that combines plan-first workflows, approval-based execution, and multi-agent coordination with your custom coding patterns.
 
 ---
 
