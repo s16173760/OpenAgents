@@ -55,6 +55,7 @@ TEMP_DIR="/tmp/opencode-installer-$$"
 SELECTED_COMPONENTS=()
 INSTALL_MODE=""
 PROFILE=""
+NON_INTERACTIVE=false
 
 #############################################################################
 # Utility Functions
@@ -498,14 +499,21 @@ show_installation_preview() {
     [ ${#configs[@]} -gt 0 ] && echo -e "${CYAN}Config (${#configs[@]}):${NC} ${configs[*]##*:}"
     
     echo ""
-    read -p "Proceed with installation? [Y/n]: " confirm
     
-    if [[ $confirm =~ ^[Nn] ]]; then
-        print_info "Installation cancelled"
-        cleanup_and_exit 0
+    # Skip confirmation if profile was provided via command line
+    if [ "$NON_INTERACTIVE" = true ]; then
+        print_info "Installing automatically (profile specified)..."
+        perform_installation
+    else
+        read -p "Proceed with installation? [Y/n]: " confirm
+        
+        if [[ $confirm =~ ^[Nn] ]]; then
+            print_info "Installation cancelled"
+            cleanup_and_exit 0
+        fi
+        
+        perform_installation
     fi
-    
-    perform_installation
 }
 
 #############################################################################
@@ -808,18 +816,22 @@ main() {
         core|--core)
             INSTALL_MODE="profile"
             PROFILE="core"
+            NON_INTERACTIVE=true
             ;;
         developer|--developer)
             INSTALL_MODE="profile"
             PROFILE="developer"
+            NON_INTERACTIVE=true
             ;;
         full|--full)
             INSTALL_MODE="profile"
             PROFILE="full"
+            NON_INTERACTIVE=true
             ;;
         advanced|--advanced)
             INSTALL_MODE="profile"
             PROFILE="advanced"
+            NON_INTERACTIVE=true
             ;;
         list|--list)
             check_dependencies
