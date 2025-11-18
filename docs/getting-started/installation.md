@@ -113,11 +113,11 @@ mv .opencode.backup.20251118-143022/.opencode .opencode
 ## Example Session
 
 ```bash
-$ bash <(curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh) --developer
+$ bash <(curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh) --developer
 
 ╔════════════════════════════════════════════════════════════════╗
 ║                                                                ║
-║           OpenCode Agents Installer v1.0.0                    ║
+║           OpenAgents Installer v1.0.0                    ║
 ║                                                                ║
 ╚════════════════════════════════════════════════════════════════╝
 
@@ -207,7 +207,7 @@ Enter your choice [1-4]: 1
 3. Start using OpenCode agents:
    opencode
 
-ℹ Documentation: https://github.com/darrenhinde/opencode-agents
+ℹ Documentation: https://github.com/darrenhinde/OpenAgents
 ```
 
 ---

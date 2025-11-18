@@ -1,6 +1,6 @@
 # Scripts
 
-This directory contains utility scripts for the OpenCode Agents system.
+This directory contains utility scripts for the OpenAgents system.
 
 ## Available Scripts
 

@@ -1,4 +1,4 @@
-# Contributing to OpenCode Agents
+# Contributing to OpenAgents
 
 Thank you for your interest in contributing! This guide will help you add new components to the registry.
 
@@ -31,8 +31,7 @@ All markdown files should include YAML frontmatter:
 ---
 description: "Brief description of what this does"
 mode: primary  # For agents only
-model: claude-4-sonnet  # For agents only
-temperature: 0.1  # For agents only
+temperature: 0.1  # Optional - for agents only
 tools:  # For agents only
   read: true
   edit: true

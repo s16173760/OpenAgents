@@ -57,7 +57,7 @@ graph LR
     style C fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
     style D fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
     style E fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
-    style F fill:#BD10E0,stroke:#9012B3,stroke-width:3px,color:#fff
+    style F fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
     style G fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
 ```
 
@@ -79,7 +79,7 @@ graph TD
     C --> D[Done!]
     
     style A fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#000
-    style B fill:#BD10E0,stroke:#9012B3,stroke-width:3px,color:#fff
+    style B fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
     style C fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
     style D fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
 ```
@@ -111,12 +111,12 @@ graph TD
     J --> L[Done!]
     
     style A fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#000
-    style B fill:#BD10E0,stroke:#9012B3,stroke-width:3px,color:#fff
+    style B fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
     style C fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
     style D fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
     style E fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
     style F fill:#D0021B,stroke:#A00116,stroke-width:3px,color:#fff
-    style G fill:#BD10E0,stroke:#9012B3,stroke-width:3px,color:#fff
+    style G fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
     style H fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
     style I fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
     style J fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
@@ -195,13 +195,39 @@ graph TD
     style Stage1 fill:#4A90E2,stroke:#2E5C8A,stroke-width:4px,color:#fff
     style Stage2 fill:#F5A623,stroke:#C17D11,stroke-width:4px,color:#000
     style Stage3 fill:#50E3C2,stroke:#3AB89E,stroke-width:4px,color:#000
-    style Stage4 fill:#BD10E0,stroke:#9012B3,stroke-width:4px,color:#fff
-    style Stage5 fill:#9013B3,stroke:#7011A0,stroke-width:4px,color:#fff
+    style Stage4 fill:#6B7C93,stroke:#4A5568,stroke-width:4px,color:#fff
+    style Stage5 fill:#5A6C7D,stroke:#3D4E5C,stroke-width:4px,color:#fff
     style Stage6 fill:#7ED321,stroke:#5FA319,stroke-width:4px,color:#000
     style Answer fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
 ```
 
+---
+
 ### Stage 1: Analyze
+
+```mermaid
+graph TD
+    A[Receive User Request] --> B[Read & Parse Request]
+    B --> C{Assess Type}
+    C -->|Informational| D[Question Path]
+    C -->|Action Required| E[Task Path]
+    
+    D --> D1[Prepare Direct Answer]
+    D1 --> D2[No Approval Needed]
+    D2 --> D3[Respond Immediately]
+    
+    E --> E1[Assess Complexity]
+    E1 --> E2[Identify Required Resources]
+    E2 --> E3[Proceed to Stage 2]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
+    style C fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style D fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+    style E fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
+    style D3 fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+    style E3 fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
+```
+
 **What happens**: OpenAgent reads your request and decides if it's a question or a task.
 
 **Your experience**: Instant - you don't see this happening.
@@ -209,6 +235,31 @@ graph TD
 ---
 
 ### Stage 2: Approve ⚠️ (MANDATORY for tasks)
+
+```mermaid
+graph TD
+    A[Task Identified] --> B[Analyze Requirements]
+    B --> C[Create Step-by-Step Plan]
+    C --> D[Format Plan for User]
+    D --> E[Present Plan to User]
+    E --> F{User Response}
+    
+    F -->|Approve| G[Proceed to Stage 3]
+    F -->|Request Changes| H[Revise Plan]
+    F -->|Reject/Cancel| I[Cancel Task]
+    
+    H --> C
+    I --> J[End - Task Cancelled]
+    
+    style A fill:#4A90E2,stroke:#2E5C8A,stroke-width:3px,color:#fff
+    style E fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style F fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style G fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+    style H fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
+    style I fill:#D0021B,stroke:#A00116,stroke-width:3px,color:#fff
+    style J fill:#D0021B,stroke:#A00116,stroke-width:3px,color:#fff
+```
+
 **What happens**: OpenAgent creates a plan and shows it to you.
 
 **Your experience**: You see something like:
@@ -227,6 +278,43 @@ graph TD
 ---
 
 ### Stage 3: Execute
+
+```mermaid
+graph TD
+    A[Approval Received] --> B[Review Plan Steps]
+    B --> C{Need Context Files?}
+    
+    C -->|Yes| D[Create Session]
+    C -->|No| E[Proceed Without Session]
+    
+    D --> F[Generate Session ID]
+    F --> G[Create Context Files]
+    G --> H[Update Manifest]
+    
+    H --> I{Delegate or Direct?}
+    E --> I
+    
+    I -->|Delegate| J[Identify Specialist Agent]
+    I -->|Direct| K[Execute Steps Directly]
+    
+    J --> L[Pass Context Files]
+    L --> M[Specialist Executes]
+    M --> N[Integrate Results]
+    
+    K --> O[Complete Execution]
+    N --> O
+    
+    O --> P[Proceed to Stage 4]
+    
+    style A fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+    style C fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style D fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
+    style I fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style J fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
+    style K fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
+    style P fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
+```
+
 **What happens**: OpenAgent carries out the plan, either directly or by delegating to specialist agents.
 
 **Your experience**: You might see:
@@ -240,6 +328,55 @@ graph TD
 ---
 
 ### Stage 4: Validate ⚠️ (MANDATORY for tasks)
+
+```mermaid
+graph TD
+    A[Execution Complete] --> B[Check Quality]
+    B --> C{Tests Applicable?}
+    
+    C -->|Yes| D[Run Tests]
+    C -->|No| E[Manual Validation]
+    
+    D --> F{Tests Pass?}
+    E --> G{Quality OK?}
+    
+    F -->|Pass| H[All Checks Passed]
+    G -->|Yes| H
+    
+    F -->|Fail| I[STOP Execution]
+    G -->|No| I
+    
+    I --> J[Report Issues Clearly]
+    J --> K[Propose Fix Plan]
+    K --> L[Request Approval]
+    L --> M{User Approves Fix?}
+    
+    M -->|Yes| N[Apply Fixes]
+    M -->|No| O[End - Issues Remain]
+    
+    N --> D
+    
+    H --> P[Ask: Additional Checks?]
+    P --> Q{User Response}
+    
+    Q -->|Run More Tests| R[Run Specific Tests]
+    Q -->|Review Files| S[Review Specific Files]
+    Q -->|Proceed| T[Proceed to Stage 5]
+    
+    R --> H
+    S --> H
+    
+    style A fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
+    style C fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style F fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style G fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style H fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+    style I fill:#D0021B,stroke:#A00116,stroke-width:3px,color:#fff
+    style L fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style M fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style T fill:#5A6C7D,stroke:#3D4E5C,stroke-width:3px,color:#fff
+```
+
 **What happens**: OpenAgent checks the quality of the work, runs tests if applicable, and ensures everything works correctly.
 
 **Your experience when validation passes**: You see:
@@ -288,6 +425,33 @@ If OpenAgent runs tests or validation and finds issues, it follows a **strict pr
 ---
 
 ### Stage 5: Summarize
+
+```mermaid
+graph TD
+    A[Validation Complete & User Satisfied] --> B{Task Complexity}
+    
+    B -->|Simple Question| C[Natural Conversational Response]
+    B -->|Simple Task| D[Brief Summary]
+    B -->|Complex Task| E[Formal Summary]
+    
+    D --> D1[Brief: Created X or Updated Y]
+    
+    E --> E1[List Accomplishments]
+    E1 --> E2[Detail Changes Made]
+    E2 --> E3[Suggest Next Steps]
+    
+    C --> F[Proceed to Stage 6]
+    D1 --> F
+    E3 --> F
+    
+    style A fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
+    style B fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style C fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+    style D fill:#50E3C2,stroke:#3AB89E,stroke-width:3px,color:#000
+    style E fill:#5A6C7D,stroke:#3D4E5C,stroke-width:3px,color:#fff
+    style F fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+```
+
 **What happens**: After validation passes and you're satisfied, OpenAgent creates a summary of what was accomplished.
 
 **Your experience**: You see a summary like:
@@ -307,6 +471,41 @@ Created README.md with project documentation.
 ---
 
 ### Stage 6: Confirm Completion ⚠️ (MANDATORY for tasks)
+
+```mermaid
+graph TD
+    A[Summary Presented] --> B[Ask: Is This Satisfactory?]
+    B --> C{User Satisfied?}
+    
+    C -->|No| D[Identify Issues]
+    D --> E[Return to Appropriate Stage]
+    
+    C -->|Yes| F{Session Files Created?}
+    
+    F -->|No| G[Task Complete]
+    
+    F -->|Yes| H[Ask: Cleanup Session Files?]
+    H --> I{User Approves Cleanup?}
+    
+    I -->|No| J[Keep Session Files]
+    J --> K[Task Complete - Files Preserved]
+    
+    I -->|Yes| L[Delete Context Files]
+    L --> M[Update Manifest]
+    M --> N[Remove Session Folder]
+    N --> O[Confirm Cleanup Complete]
+    O --> P[Task Complete - Cleaned Up]
+    
+    style A fill:#5A6C7D,stroke:#3D4E5C,stroke-width:3px,color:#fff
+    style C fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style D fill:#D0021B,stroke:#A00116,stroke-width:3px,color:#fff
+    style F fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style G fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+    style I fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
+    style K fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+    style P fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
+```
+
 **What happens**: OpenAgent asks if you're satisfied and if temporary files should be cleaned up.
 
 **Your experience**: You see:
@@ -506,9 +705,9 @@ graph TD
     style B fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
     style C fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
     style D fill:#F5A623,stroke:#C17D11,stroke-width:3px,color:#000
-    style E fill:#BD10E0,stroke:#9012B3,stroke-width:3px,color:#fff
-    style F fill:#BD10E0,stroke:#9012B3,stroke-width:3px,color:#fff
-    style G fill:#BD10E0,stroke:#9012B3,stroke-width:3px,color:#fff
+    style E fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
+    style F fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
+    style G fill:#6B7C93,stroke:#4A5568,stroke-width:3px,color:#fff
     style H fill:#7ED321,stroke:#5FA319,stroke-width:3px,color:#000
 ```
 

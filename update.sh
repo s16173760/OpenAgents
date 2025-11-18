@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #############################################################################
-# OpenCode Agents Updater
+# OpenAgents Updater
 # Updates existing OpenCode components to latest versions
 #############################################################################
 
@@ -15,7 +15,7 @@ CYAN='\033[0;36m'
 BOLD='\033[1m'
 NC='\033[0m'
 
-REPO_URL="https://raw.githubusercontent.com/darrenhinde/opencode-agents/main"
+REPO_URL="https://raw.githubusercontent.com/darrenhinde/OpenAgents/main"
 INSTALL_DIR=".opencode"
 
 print_success() { echo -e "${GREEN}✓${NC} $1"; }
@@ -26,7 +26,7 @@ print_header() {
     echo -e "${CYAN}${BOLD}"
     echo "╔════════════════════════════════════════════════════════════════╗"
     echo "║                                                                ║"
-    echo "║           OpenCode Agents Updater v1.0.0                     ║"
+    echo "║           OpenAgents Updater v1.0.0                           ║"
     echo "║                                                                ║"
     echo "╚════════════════════════════════════════════════════════════════╝"
     echo -e "${NC}"

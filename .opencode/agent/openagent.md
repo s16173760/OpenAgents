@@ -1,7 +1,6 @@
 ---
 description: "Universal agent for answering queries, executing tasks, and coordinating workflows across any domain"
 mode: primary
-model: claude-4-sonnet
 temperature: 0.2
 tools:
   read: true

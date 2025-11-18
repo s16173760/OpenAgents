@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #############################################################################
-# OpenCode Agents Installer
+# OpenAgents Installer
 # Interactive installer for OpenCode agents, commands, tools, and plugins
 #
 # Compatible with:
@@ -44,9 +44,9 @@ else
 fi
 
 # Configuration
-REPO_URL="https://github.com/darrenhinde/opencode-agents"
+REPO_URL="https://github.com/darrenhinde/OpenAgents"
 BRANCH="${OPENCODE_BRANCH:-main}"  # Allow override via environment variable
-RAW_URL="https://raw.githubusercontent.com/darrenhinde/opencode-agents/${BRANCH}"
+RAW_URL="https://raw.githubusercontent.com/darrenhinde/OpenAgents/${BRANCH}"
 REGISTRY_URL="${RAW_URL}/registry.json"
 INSTALL_DIR=".opencode"
 TEMP_DIR="/tmp/opencode-installer-$$"
@@ -65,7 +65,7 @@ print_header() {
     echo -e "${CYAN}${BOLD}"
     echo "╔════════════════════════════════════════════════════════════════╗"
     echo "║                                                                ║"
-    echo "║           OpenCode Agents Installer v1.0.0                    ║"
+    echo "║           OpenAgents Installer v1.0.0                         ║"
     echo "║                                                                ║"
     echo "╚════════════════════════════════════════════════════════════════╝"
     echo -e "${NC}"
@@ -227,7 +227,7 @@ check_interactive_mode() {
         echo "For interactive mode, download the script first:"
         echo ""
         echo -e "${CYAN}# Download the script${NC}"
-        echo "curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh -o install.sh"
+        echo "curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh -o install.sh"
         echo ""
         echo -e "${CYAN}# Run interactively${NC}"
         echo "bash install.sh"
@@ -235,7 +235,7 @@ check_interactive_mode() {
         echo "Or use a profile directly:"
         echo ""
         echo -e "${CYAN}# Quick install with profile${NC}"
-        echo "curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s essential"
+        echo "curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash -s essential"
         echo ""
         echo "Available profiles: essential, developer, business, full, advanced"
         echo ""
@@ -880,7 +880,7 @@ main() {
             echo "Examples:"
             echo "  $0 essential"
             echo "  $0 --developer"
-            echo "  curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s essential"
+            echo "  curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash -s essential"
             echo ""
             echo "Without options, runs in interactive mode"
             exit 0

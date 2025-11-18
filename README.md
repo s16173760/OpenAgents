@@ -1,17 +1,19 @@
 <div align="center">
 
-# OpenCode Agents
+# OpenAgents
 
 ### AI agent framework for plan-first development workflows with approval-based execution
 
-[![GitHub stars](https://img.shields.io/github/stars/darrenhinde/opencode-agents?style=social)](https://github.com/darrenhinde/opencode-agents/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/darrenhinde/OpenAgents?style=social)](https://github.com/darrenhinde/OpenAgents/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub last commit](https://img.shields.io/github/last-commit/darrenhinde/opencode-agents)](https://github.com/darrenhinde/opencode-agents/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/darrenhinde/OpenAgents)](https://github.com/darrenhinde/OpenAgents/commits/main)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/contributing/CONTRIBUTING.md)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow.svg?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/darrenhinde)
 
 **Multi-language support:** TypeScript • Python • Go • Rust  
 **Features:** Automatic testing • Code review • Validation
+
+> **🚀 Future Plans:** Currently optimized for OpenCode CLI. Support for other AI coding tools (Cursor, Claude Code, etc.) will be added after stabilizing the OpenCode integration.
 
 </div>
 
@@ -19,7 +21,7 @@
 
 > **Note:** This repository has evolved since the demo video with continuous improvements to make it easier for others to use in their projects. The core concepts remain the same, but installation and component organization have been streamlined.
 
-> 📹 **Following along with the video?** The simplified structure shown in the tutorial is available on the [`video-simple`](https://github.com/darrenhinde/opencode-agents/tree/video-simple) branch.
+> 📹 **Following along with the video?** The simplified structure shown in the tutorial is available on the [`video-simple`](https://github.com/darrenhinde/OpenAgents/tree/video-simple) branch.
 
 
 ## Why Use This?
@@ -49,7 +51,7 @@ https://opencode.ai/docs#
 
 ```bash
 # Download the installer
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh -o install.sh
 
 # Run interactively
 bash install.sh
@@ -61,7 +63,7 @@ bash install.sh
 
 ```bash
 # Download the installer
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh -o install.sh
 
 # Run interactively
 bash install.sh
@@ -73,7 +75,7 @@ bash install.sh
 
 ```powershell
 # Download the script
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh" -OutFile "install.sh"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh" -OutFile "install.sh"
 
 # Run with Git Bash
 & "C:\Program Files\Git\bin\bash.exe" install.sh
@@ -86,7 +88,7 @@ wsl bash install.sh
 </details>
 
 The installer offers:
-- 🎯 **Quick Profiles**: Core, Developer, Full, or Advanced
+- 🎯 **Quick Profiles**: Essential, Developer, Business, Full, or Advanced
 - 🎨 **Custom Selection**: Pick exactly what you need
 - 📦 **Smart Dependencies**: Auto-installs required components
 - ✨ **Interactive Menus**: User-friendly component browser
@@ -103,17 +105,20 @@ The installer offers:
 <summary><b>macOS / Linux / Git Bash / WSL</b></summary>
 
 ```bash
-# Core - Minimal essentials (9 components)
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s core
+# Essential - Minimal essentials (9 components)
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash -s essential
 
-# Developer - Recommended for daily work (22 components)
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s developer
+# Developer - Recommended for daily work (19 components)
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash -s developer
+
+# Business - Business automation and content creation (15 components)
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash -s business
 
 # Full - Everything included (25 components)
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s full
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash -s full
 
-# Advanced - Full + System Builder (30 components)
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s advanced
+# Advanced - Full + System Builder (32 components)
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash -s advanced
 ```
 </details>
 
@@ -122,13 +127,16 @@ curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/in
 
 ```powershell
 # Download script
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh" -OutFile "install.sh"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh" -OutFile "install.sh"
 
-# Core profile
-& "C:\Program Files\Git\bin\bash.exe" install.sh core
+# Essential profile
+& "C:\Program Files\Git\bin\bash.exe" install.sh essential
 
 # Developer profile
 & "C:\Program Files\Git\bin\bash.exe" install.sh developer
+
+# Business profile
+& "C:\Program Files\Git\bin\bash.exe" install.sh business
 
 # Full profile
 & "C:\Program Files\Git\bin\bash.exe" install.sh full
@@ -143,8 +151,8 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/darrenhinde/opencode-a
 **Option C: Manual Install**
 ```bash
 # Clone this repository
-git clone https://github.com/darrenhinde/opencode-agents.git
-cd opencode-agents
+git clone https://github.com/darrenhinde/OpenAgents.git
+cd OpenAgents
 
 # Install to OpenCode directory (global)
 mkdir -p ~/.opencode
@@ -282,7 +290,7 @@ The System Builder is an interactive tool that generates complete `.opencode` ar
 ### Quick Start
 ```bash
 # Install advanced profile (includes system builder)
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s advanced
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash -s advanced
 
 # Run the interactive builder
 /build-context-system
@@ -329,7 +337,7 @@ cd ~/.opencode/plugin
 npm install
 
 # Configure
-cd ~/opencode-agents
+cd ~/OpenAgents
 cp env.example .env
 # Edit .env with TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID
 ```
@@ -350,7 +358,7 @@ cd ~/.opencode/tool
 npm install
 
 # Configure
-cd ~/opencode-agents
+cd ~/OpenAgents
 cp env.example .env
 # Edit .env with GEMINI_API_KEY
 ```
@@ -393,48 +401,58 @@ A: Yes! Use the installer's list feature to see all components:
 Or cherry-pick individual files with curl:
 ```bash
 curl -o ~/.opencode/agent/codebase-agent.md \
-  https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/.opencode/agent/codebase-agent.md
+  https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/.opencode/agent/codebase-agent.md
 ```
 
 ---
 
 ## Installation Profiles
 
-The installer offers four pre-configured profiles:
+The installer offers five pre-configured profiles:
 
-### 🎯 Core (Minimal - 9 components)
-Absolute essentials for basic development workflow.
-- **Agents**: task-manager, codebase-agent
-- **Subagents**: tester, documentation, coder-agent
-- **Commands**: commit
+### 🎯 Essential (Minimal - 9 components)
+Minimal starter kit - universal agent with core subagents.
+- **Agents**: openagent
+- **Subagents**: task-manager, documentation
+- **Commands**: context, clean
+- **Tools**: env
 - **Context**: essential-patterns, project-context
 - **Config**: env-example
-- **Best for**: Minimal setup, learning the system
+- **Best for**: Learning the system, lightweight tasks, minimal setup
 
-### 💼 Developer (Recommended - 22 components)
-Complete daily development setup with AI assistance.
-- Everything in Core, plus:
-- **Agents**: image-specialist, workflow-orchestrator
-- **Subagents**: reviewer, build-agent, codebase-pattern-analyst
-- **Commands**: test, context, clean, optimize, prompt-enhancer
-- **Tools**: env, gemini (AI image generation)
+### 💼 Developer (Recommended - 19 components)
+Complete software development environment with code generation, testing, review, and build tools.
+- Everything in Essential, plus:
+- **Agents**: codebase-agent
+- **Subagents**: coder-agent, reviewer, tester, build-agent, codebase-pattern-analyst
+- **Commands**: commit, test, optimize
 - **Config**: readme
-- **Best for**: Most developers, daily use, full-featured
+- **Best for**: Most developers, daily use, full-featured development
 
-### 📦 Full
-Complete installation with all available components.
-- Everything in Developer, plus:
+### 📊 Business (15 components)
+Business process automation, content creation, and visual workflows.
+- **Agents**: openagent
+- **Subagents**: task-manager, documentation, image-specialist
+- **Commands**: context, clean, prompt-enhancer
+- **Tools**: env, gemini (AI image generation)
+- **Plugins**: notify, telegram-notify
+- **Context**: essential-patterns, project-context
+- **Config**: env-example, readme
+- **Best for**: Business automation, content creation, non-developers
+
+### 📦 Full (25 components)
+Everything included - all agents, subagents, tools, and plugins.
+- Everything in Developer and Business combined, plus:
 - **Commands**: worktrees (git worktree management)
 - **Best for**: Power users, exploring all features
 
-### 🚀 Advanced
-Full installation plus **System Builder** and experimental features.
+### 🚀 Advanced (32 components)
+Full installation plus **System Builder** for creating custom AI architectures.
 - Everything in Full, plus:
-- **System Builder**: Interactive AI system generator (7 components)
+- **System Builder**: Interactive AI system generator
   - system-builder agent
   - domain-analyzer, agent-generator, context-organizer, workflow-designer, command-creator subagents
   - build-context-system command
-- **Additional**: .Building/ directory, GitHub workflows
 - **Best for**: Building custom AI systems, contributors, learning the architecture
 
 ## Updating Components
@@ -446,7 +464,7 @@ Keep your components up to date:
 ./update.sh
 
 # Or re-run the installer
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgents/main/install.sh | bash
 ```
 
 ---

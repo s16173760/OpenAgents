@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "repository": "https://github.com/darrenhinde/opencode-agents",
+  "repository": "https://github.com/darrenhinde/OpenAgents",
   "categories": {
     "essential": "Minimal components for basic functionality",
     "standard": "Standard components for typical use",
