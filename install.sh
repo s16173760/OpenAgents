@@ -203,7 +203,35 @@ resolve_dependencies() {
 # Installation Mode Selection
 #############################################################################
 
+check_interactive_mode() {
+    # Check if stdin is a terminal (not piped from curl)
+    if [ ! -t 0 ]; then
+        print_header
+        print_error "Interactive mode requires a terminal"
+        echo ""
+        echo "You're running this script in a pipe (e.g., curl | bash)"
+        echo "For interactive mode, download the script first:"
+        echo ""
+        echo -e "${CYAN}# Download the script${NC}"
+        echo "curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh -o install.sh"
+        echo ""
+        echo -e "${CYAN}# Run interactively${NC}"
+        echo "bash install.sh"
+        echo ""
+        echo "Or use a profile directly:"
+        echo ""
+        echo -e "${CYAN}# Quick install with profile${NC}"
+        echo "curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s core"
+        echo ""
+        echo "Available profiles: core, developer, full, advanced"
+        echo ""
+        cleanup_and_exit 1
+    fi
+}
+
 show_main_menu() {
+    check_interactive_mode
+    
     clear
     print_header
     

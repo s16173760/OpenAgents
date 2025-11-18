@@ -40,25 +40,37 @@ https://opencode.ai/docs#
 ```
 ### Step 2: Install Agents & Commands
 
-**Option A: Interactive Installer (Recommended)**
+**Option A: Interactive Installer**
+
+> **Note:** Interactive mode requires downloading the script first (can't run through pipe)
 
 <details open>
 <summary><b>macOS / Linux</b></summary>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash
+# Download the installer
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh -o install.sh
+
+# Run interactively
+bash install.sh
 ```
 </details>
 
 <details>
-<summary><b>Windows</b></summary>
+<summary><b>Windows (Git Bash)</b></summary>
 
-**Using Git Bash (Recommended):**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash
-```
+# Download the installer
+curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh -o install.sh
 
-**Using PowerShell:**
+# Run interactively
+bash install.sh
+```
+</details>
+
+<details>
+<summary><b>Windows (PowerShell)</b></summary>
+
 ```powershell
 # Download the script
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh" -OutFile "install.sh"
@@ -68,11 +80,6 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/darrenhinde/opencode-a
 
 # Or run with WSL
 wsl bash install.sh
-```
-
-**Using WSL:**
-```bash
-curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash
 ```
 
 > **Note:** Git Bash comes with Git for Windows. [Download here](https://git-scm.com/download/win)
@@ -88,7 +95,9 @@ The installer offers:
 
 > **Updating?** The installer detects existing files and lets you choose: skip existing (keep your changes), overwrite all (get latest), or backup & overwrite (safe update). [Learn more](docs/getting-started/collision-handling.md)
 
-**Option B: Profile-Based Install**
+**Option B: Profile-Based Install (Recommended)**
+
+> **Fastest method:** One command, no interaction needed
 
 <details open>
 <summary><b>macOS / Linux / Git Bash / WSL</b></summary>
@@ -100,10 +109,10 @@ curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/in
 # Balanced for daily development (22 components)
 curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s developer
 
-# Everything included (24 components)
+# Everything included (25 components)
 curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s full
 
-# Advanced + System Builder (29 components)
+# Advanced + System Builder (23 components)
 curl -fsSL https://raw.githubusercontent.com/darrenhinde/opencode-agents/main/install.sh | bash -s advanced
 ```
 </details>
