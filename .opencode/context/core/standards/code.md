@@ -1,3 +1,4 @@
+<!-- Context: standards/code | Priority: critical | Version: 2.0 | Updated: 2025-01-21 -->
 # Code Standards
 
 ## Quick Reference

@@ -1,3 +1,4 @@
+<!-- Context: workflows/sessions | Priority: medium | Version: 2.0 | Updated: 2025-01-21 -->
 # Session Management
 
 ## Quick Reference

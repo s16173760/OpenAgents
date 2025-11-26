@@ -1,3 +1,4 @@
+<!-- Context: workflows/delegation | Priority: high | Version: 2.0 | Updated: 2025-01-21 -->
 # Delegation Context Template
 
 ## Quick Reference

@@ -198,5 +198,9 @@ temp/
 # Bun
 .bun
 
+# Evaluation results
+evals/results/*
+!evals/results/.gitkeep
+
 # User-generated task files
-tasks/*
+tasks/

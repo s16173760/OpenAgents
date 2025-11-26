@@ -1,3 +1,5 @@
+<!-- Context: standards/analysis | Priority: high | Version: 2.0 | Updated: 2025-01-21 -->
+
 # Analysis Guidelines
 
 ## Quick Reference
